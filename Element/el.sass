@@ -8,9 +8,29 @@
     padding: 0
 
 body
-    background-color: #f4f7f8
+    background-color: $light
     font-size: $t1
     font-weight: $w1
+
+h1
+    font-size: $t7
+h2
+    font-size: $t6
+h3
+    font-size: $t5
+h4
+    font-size: $t4
+h5
+    font-size: $t3
+h6
+    font-size: $t2
+h1, h2, h3, h4, h5, h6
+    margin-bottom: 30px
+p
+    font-size: $t1
+    margin-bottom: 15px
+small
+    font-size: $t0
 
 .el
     &.navbar
@@ -21,8 +41,8 @@ body
         width: calc( 100% - 40px )
         padding: 20px
         height: 30px
-        background-color: #fff
-        color: $color
+        background-color: $white
+        color: $dark
         font-size: $t1
         font-weight: $w1
         &.fixed
@@ -49,19 +69,19 @@ body
                 margin: 0 15px
                 font-weight: $w1p
                 a
-                    color: $color
+                    color: $dark
                     text-decoration: none
                     opacity: 0.5
-                    transition: all $anim ease-in-out
+                    transition: all $aspd $afnc
                     &::before
                             position: absolute
                             content: ""
-                            background-color: $color
+                            background-color: $dark
                             width: 0%
                             height: 0.25em
                             bottom: -20px
                             left: 0
-                            transition: all $anim ease-in-out
+                            transition: all $aspd $afnc
                     &.active
                         opacity: 1
                         &::before
@@ -79,8 +99,8 @@ body
         align-items: center
         padding: 40px 20vw
         width: 60%
-        background-color: #eef2f5
-        color: $color
+        background-color: $gray
+        color: $dark
 
         .controls
             position: absolute
@@ -95,17 +115,17 @@ body
                 width: 1.5em
                 height: 1.5em
                 font-size: 1.2em
-                border-radius: $radius * 2
-                transition: all $anim ease-in-out
+                border-radius: 4px
+                transition: all $aspd $afnc
                 &:hover
                     background-color: #fff
-                    box-shadow: 0px 3px 10px 2px rgba($color,0.05)
+                    box-shadow: 0px 3px 10px 2px rgba($dark,0.05)
                     transform: translateY(-2px)
                 a
                     display: flex
                     align-items: center
                     justify-content: center
-                    color: $color
+                    color: $dark
                     font-size: 1.2em
                     text-decoration: none
 
@@ -113,13 +133,14 @@ body
             h1, h2, h3, h4, h5, h6
                 font-size: $t5
                 font-weight: $w2
+                margin-bottom: 0
             .breadcrumbs
                 display: flex
-                color: $color
+                color: $dark
                 .crumb
-                    transition: all $anim ease-in-out
+                    transition: all $aspd $afnc
                     a
-                        color: $color
+                        color: $dark
                         text-decoration: none
                         font-weight: $w2
 
@@ -143,13 +164,13 @@ body
                 margin: 0 0.6em
                 width: 2em
                 height: 2em
-                border-radius: $radius * 2
-                transition: all $anim ease-in-out
+                border-radius: 4px
+                transition: all $aspd $afnc
                 &.separated
                     margin-right: 1.5em
                 &:hover
                     background-color: #fff
-                    box-shadow: 0px 3px 10px 2px rgba($color,0.05)
+                    box-shadow: 0px 3px 10px 2px rgba($dark,0.05)
                     transform: translateY(-2px)
                     span
                         &::before
@@ -158,7 +179,7 @@ body
                     display: flex
                     align-items: center
                     justify-content: center
-                    color: $color
+                    color: $dark
                     font-size: 1.5em
                     text-decoration: none
                 span
@@ -172,8 +193,99 @@ body
                         height: 145%
                         width: 2px
                         opacity: 0.5
-                        background-color: $color
-                        transition: all $anim ease-in-out
+                        background-color: $dark
+                        transition: all $aspd $afnc
                     
-        
+    &.container
+        padding: 0 20vw
+        padding-top: 100px
+        color: $dark
+        &.small
+            padding: 0 30vw
+            padding-top: 100px
+        &.large
+            padding: 0 10vw
+            padding-top: 100px
 
+    ul
+        &.list
+            list-style: none
+            li
+                position: relative
+                padding-left: 1.5em
+                &::before
+                    position: absolute
+                    content: ' '
+                    background-color: $dark
+                    border-radius: 4px
+                    height: 4px
+                    width: 1em
+                    top: 50%
+                    left: 0
+                    transform: translateY(-50%)
+                    transition: all $aspd $afnc
+                &.primary
+                    &::before
+                        background-color: $primary
+                &.success
+                    &::before
+                        background-color: $success
+                &.danger
+                    &::before
+                        background-color: $danger
+                &.warn
+                    &::before
+                        background-color: $warn
+                &:hover
+                    &::before
+                        opacity: 0.6
+            &.nohover
+                li
+                    &:hover
+                        &::before
+                            opacity: 1
+    
+    .card
+        border-radius: 10px 20px 10px 20px
+        box-shadow: 0px 5px 20px 5px rgba($dark,0.05)
+        min-width: 200px
+        min-height: 124px
+        color: $dark
+        background-color: $white
+        transition: all $aspd $afnc
+        &.primary
+            background-color: $primary
+            color: $primaryfg
+            box-shadow: 0px 5px 20px 5px rgba($primary,0.3)
+        &.success
+            background-color: $success
+            color: $successfg
+            box-shadow: 0px 5px 20px 5px rgba($success,0.3)
+        &.danger
+            background-color: $danger
+            color: $dangerfg
+            box-shadow: 0px 5px 20px 5px rgba($danger,0.3)
+        &.warn
+            background-color: $warn
+            color: $warnfg
+            box-shadow: 0px 5px 20px 5px rgba($warn,0.3)
+        &.dark
+            background-color: $dark
+            color: $white
+            box-shadow: 0px 5px 20px 5px rgba($dark,0.3)
+        &:hover
+            box-shadow: none
+            transform: translateY(2px)
+        &.nohover
+            &:hover
+                transform: none
+            &.primary
+                box-shadow: 0px 5px 20px 5px rgba($primary,0.3)
+            &.success
+                box-shadow: 0px 5px 20px 5px rgba($success,0.3)
+            &.danger
+                box-shadow: 0px 5px 20px 5px rgba($danger,0.3)
+            &.warn
+                box-shadow: 0px 5px 20px 5px rgba($warn,0.3)
+            &.dark
+                box-shadow: 0px 5px 20px 5px rgba($dark,0.3)
